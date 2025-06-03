@@ -12,6 +12,7 @@ export default function RegisterForm() {
         surname: '',
         nickname: ''
     });
+    const [error, setError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,16 +20,26 @@ export default function RegisterForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const newUser = {
-            id: uuidv4(),
-            ...form,
-            photo: '',
-            favorite: [],
-            watched: [],
-            watchlist: []
-        };
 
         try {
+            const existingResponse = await fetch('/api/users');
+            const existingUsers = await existingResponse.json();
+            const emailTaken = existingUsers.some((u: any) => u.email === form.email);
+
+            if (emailTaken) {
+                setError('This email is already taken. Please try another one.');
+                return;
+            }
+
+            const newUser = {
+                id: uuidv4(),
+                ...form,
+                photo: '',
+                favorite: [],
+                watched: [],
+                watchlist: []
+            };
+
             const response = await fetch('/api/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -36,18 +47,22 @@ export default function RegisterForm() {
             });
 
             if (response.ok) {
+                setError('');
                 alert('User registered successfully!');
             } else {
-                alert('Failed to register user.');
+                setError('Failed to register user.');
             }
         } catch (error) {
             console.error('Error registering user:', error);
-            alert('An error occurred while registering user.');
+            setError('An error occurred while registering user.');
         }
     };
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
+            <div style={{ minHeight: '20px' }}>
+                {error && <p className={styles.error}>{error}</p>}
+            </div>
             <input name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
             <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required />
             <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required />

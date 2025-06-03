@@ -6,6 +6,7 @@ import styles from './LogInForm.module.css';
 export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -19,7 +20,8 @@ export default function LoginForm() {
             if (found) {
                 alert(`Welcome back, ${found.nickname}!`);
             } else {
-                alert('Invalid email or password');
+                setError('Invalid email or password');
+                return;
             }
         } catch (error) {
             console.error('Login error:', error);
@@ -29,6 +31,9 @@ export default function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
+            <div style={{ minHeight: '20px' }}>
+                {error && <p className={styles.error}>{error}</p>}
+            </div>
             <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -48,3 +53,4 @@ export default function LoginForm() {
         </form>
     );
 }
+
