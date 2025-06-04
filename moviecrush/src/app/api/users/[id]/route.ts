@@ -4,14 +4,14 @@ import path from 'path';
 
 const filePath = path.join(process.cwd(), 'src/data/users.json');
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-    const id = params.id;
+export async function PUT(req: Request, context: { params: { userId: string } }) {
+    const { userId } = context.params;
     const updatedData = await req.json();
 
     const raw = await readFile(filePath, 'utf-8');
     const users = JSON.parse(raw);
 
-    const index = users.findIndex((u: any) => u.id === id);
+    const index = users.findIndex((u: any) => u.id === userId);
     if (index === -1) {
         return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
