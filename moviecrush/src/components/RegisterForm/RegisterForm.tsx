@@ -48,6 +48,7 @@ export default function RegisterForm() {
 
             if (response.ok) {
                 setError('');
+                localStorage.setItem('userId', newUser.id);
                 alert('User registered successfully!');
             } else {
                 setError('Failed to register user.');

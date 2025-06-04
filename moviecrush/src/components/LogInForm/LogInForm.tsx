@@ -19,6 +19,7 @@ export default function LoginForm() {
 
             if (found) {
                 alert(`Welcome back, ${found.nickname}!`);
+                localStorage.setItem('userId', found.id);
             } else {
                 setError('Invalid email or password');
                 return;

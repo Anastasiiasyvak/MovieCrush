@@ -10,7 +10,10 @@ export default function Home() {
         </Link><br/>
         <Link href="/login" style={{ color: '#0070f3' }}>
           Log In Page
-        </Link>
+        </Link><br/>
+        <Link href="/profile" style={{ color: '#0070f3' }}>
+          Profile Page
+        </Link><br/>
       </>
   );
 }
