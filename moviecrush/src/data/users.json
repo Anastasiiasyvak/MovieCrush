@@ -1,0 +1,26 @@
+[
+  {
+    "id": "727f647d-689c-47c2-a3bf-60d2d5e4fc1d",
+    "email": "mama@gmail.com",
+    "password": "1234567890",
+    "name": "Ya",
+    "surname": "Ma",
+    "nickname": "yayayayay",
+    "photo": "",
+    "favorite": [],
+    "watched": [],
+    "watchlist": []
+  },
+  {
+    "id": "ca94115b-516f-40c3-9e52-930029cbdbdb",
+    "email": "tttt@gm.ua",
+    "password": "fjyfhfjfhjf",
+    "name": "bjkgjvgk",
+    "surname": "vhfjv",
+    "nickname": "gukguik",
+    "photo": "",
+    "favorite": [],
+    "watched": [],
+    "watchlist": []
+  }
+]
