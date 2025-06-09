@@ -17,6 +17,9 @@ export default function Home() {
         <Link href="/recommendations" style={{ color: '#0070f3' }}>
           Recommendations Page
         </Link><br/>
+        <Link href="/search" style={{ color: '#0070f3' }}>
+          Search Page
+        </Link><br/>
       </>
   );
 }
