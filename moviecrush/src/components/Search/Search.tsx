@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect, useCallback } from 'react';
 import styles from './Search.module.css';
 
 interface SearchProps {
@@ -14,10 +14,41 @@ export default function Search({
 }: SearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
+  // Debounce функція
+  const useDebounce = (value: string, delay: number) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+
+      return () => {
+        clearTimeout(handler);
+      };
+    }, [value, delay]);
+
+    return debouncedValue;
+  };
+
+  // Використовуємо debounce з затримкою 500мс
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+
+  // Викликаємо пошук тільки коли debouncedSearchQuery змінюється
+  useEffect(() => {
+    if (debouncedSearchQuery) {
+      onSearch(debouncedSearchQuery);
+    }
+  }, [debouncedSearchQuery, onSearch]);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
-    await onSearch(query);
+    
+    // Якщо інпут порожній, одразу очищаємо результати
+    if (!query.trim()) {
+      onSearch('');
+    }
   };
 
   return (
