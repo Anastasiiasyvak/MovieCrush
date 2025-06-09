@@ -34,5 +34,29 @@
     "favorite": [],
     "watched": [],
     "watchlist": []
+  },
+  {
+    "id": "0b537514-1ed0-4e01-a868-a5a0c9504c84",
+    "email": "oleksiy@gmail.com",
+    "password": "bwshbwdwedvedu",
+    "name": "Льоха",
+    "surname": "Сивак",
+    "nickname": "Alyoshka",
+    "photo": "",
+    "favorite": [],
+    "watched": [],
+    "watchlist": []
+  },
+  {
+    "id": "19073a44-05d8-44f3-be89-f77a2e2d76a2",
+    "email": "georgemichael@gmail.com",
+    "password": "jbdchebchewrbjjn",
+    "name": "Шевченко",
+    "surname": "Георгій",
+    "nickname": "Жорік",
+    "photo": "",
+    "favorite": [],
+    "watched": [],
+    "watchlist": []
   }
 ]
