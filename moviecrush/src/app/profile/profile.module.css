@@ -209,3 +209,11 @@
   text-align: center;
   padding: 2rem;
 }
+
+.avatarPlaceholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #333333;
+    border: 2px solid #FFE566;
+}

@@ -212,13 +212,17 @@ export default function ProfilePage() {
         <div className={styles.profileContent}>
           <div className={styles.userInfo}>
             <div className={styles.avatarContainer}>
-              <Image
-                src={userProfile.photo || '/api/placeholder/150/150'}
-                alt="User avatar"
-                width={150}
-                height={150}
-                className={styles.avatar}
-              />
+              {userProfile.photo ? (
+                <Image
+                  src={userProfile.photo}
+                  alt="User avatar"
+                  width={150}
+                  height={150}
+                  className={styles.avatar}
+                />
+              ) : (
+                <div className={styles.avatarPlaceholder}></div>
+              )}
             </div>
             <h2 className={styles.username}>{userProfile.nickname}</h2>
             <p className={styles.userMeta}>Member since {joinDate}</p>

@@ -19,10 +19,13 @@ interface UserProfile {
 
 export default function SettingsPage() {
   const [username, setUsername] = useState('');
-  const [avatarPreview, setAvatarPreview] = useState<string>('/api/placeholder/150/150');
+  const [avatarPreview, setAvatarPreview] = useState<string>(''); 
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [emailConfirmation, setEmailConfirmation] = useState('');
+  const [currentUserEmail, setCurrentUserEmail] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -40,7 +43,8 @@ export default function SettingsPage() {
 
         if (user) {
           setUsername(user.nickname);
-          setAvatarPreview(user.photo || '/api/placeholder/150/150');
+          setCurrentUserEmail(user.email);
+          setAvatarPreview(user.photo || '');
         }
       } catch (error) {
         console.error('Error loading user:', error);
@@ -76,17 +80,7 @@ export default function SettingsPage() {
       const userId = localStorage.getItem('userId');
       if (!userId) return;
 
-      // Отримуємо поточні дані користувача
-      const response = await fetch('/api/users');
-      const users = await response.json();
-      const currentUser = users.find((u: UserProfile) => u.id === userId);
-
-      if (!currentUser) {
-        throw new Error('User not found');
-      }
-
       const updatedUser = {
-        ...currentUser,
         nickname: username,
         photo: avatarPreview,
       };
@@ -98,6 +92,7 @@ export default function SettingsPage() {
       });
 
       if (updateResponse.ok) {
+        alert('Profile updated successfully!');
         router.push('/profile');
       } else {
         throw new Error('Failed to update profile');
@@ -108,6 +103,40 @@ export default function SettingsPage() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleLogout = () => {
+    setShowLogoutModal(true);
+  };
+
+  const confirmLogout = async () => {
+    if (emailConfirmation !== currentUserEmail) {
+      alert('Email does not match. Please enter your correct email.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/users/delete`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: currentUserEmail }),
+      });
+
+      if (response.ok) {
+        localStorage.removeItem('userId');
+        router.push('/');
+      } else {
+        throw new Error('Failed to delete user');
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      alert('Failed to delete account. Please try again.');
+    }
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
+    setEmailConfirmation('');
   };
 
   const goBack = () => {
@@ -153,13 +182,17 @@ export default function SettingsPage() {
           <div className={styles.avatarSection}>
             <h3 className={styles.sectionTitle}>Profile Picture</h3>
             <div className={styles.avatarContainer}>
-              <Image
-                src={avatarPreview}
-                alt="Avatar preview"
-                width={150}
-                height={150}
-                className={styles.avatarPreview}
-              />
+              {avatarPreview ? (
+                <Image
+                  src={avatarPreview}
+                  alt="Avatar preview"
+                  width={150}
+                  height={150}
+                  className={styles.avatarPreview}
+                />
+              ) : (
+                <div className={styles.avatarPlaceholder}></div>
+              )}
               <label className={styles.avatarUploadButton}>
                 <input
                   type="file"
@@ -190,8 +223,45 @@ export default function SettingsPage() {
           >
             {saving ? 'Saving...' : 'Save Changes'}
           </button>
+
+          <button 
+            onClick={handleLogout} 
+            className={styles.logoutButton}
+          >
+            Log Out
+          </button>
         </div>
       </div>
+
+      {showLogoutModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h3 className={styles.modalTitle}>Confirm Account Deletion</h3>
+            <p className={styles.modalText}>
+              Are you sure you want to delete your account? This action cannot be undone.
+            </p>
+            <p className={styles.modalText}>
+              Please enter your email to confirm:
+            </p>
+            <input
+              type="email"
+              value={emailConfirmation}
+              onChange={(e) => setEmailConfirmation(e.target.value)}
+              placeholder="Enter your email"
+              className={styles.modalInput}
+            />
+            <div className={styles.modalButtons}>
+              <button onClick={cancelLogout} className={styles.cancelButton}>
+                Cancel
+              </button>
+              <button onClick={confirmLogout} className={styles.confirmButton}>
+                Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer defaultSelected="Profile" />
     </div>
   );

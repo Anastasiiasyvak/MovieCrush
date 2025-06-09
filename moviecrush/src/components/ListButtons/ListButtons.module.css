@@ -1,75 +1,75 @@
 .list-buttons-container {
-    display: flex;
-    background-color: #1a1a1a;
-    padding: 12px;
-    border-radius: 16px 16px 0 0;
-    gap: 8px;
-    width: 100%;
-    box-sizing: border-box;
+  display: flex;
+  background-color: #1a1a1a; 
+  padding: 12px;
+  border-radius: 16px 16px 0 0; 
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .list-button {
-    align-items: center;
-    background-color: transparent;
-    border-radius: 20px;
-    box-sizing: border-box;
-    color: #828282;
-    cursor: pointer;
-    display: inline-flex;
-    flex: 1;
-    font-family: Inter, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    justify-content: center;
-    line-height: 1;
-    margin: 0;
-    outline: none;
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: #828282;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1;
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list-button:hover {
-    color: #FFE566;
-    border-color: #FFE566;
+  color: #FFE566; 
+  border-color: #FFE566; 
 }
 
 .list-button.selected {
-    color: #FFE566;
-    border: 1px solid #FFE566;
+  color: #FFE566;
+  border: 1px solid #FFE566;
 }
 
 @media (max-width: 768px) {
-    .list-buttons-container {
-        padding: 10px;
-        gap: 6px;
-    }
-
-    .list-button {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
+  .list-buttons-container {
+    padding: 10px;
+    gap: 6px;
+  }
+  
+  .list-button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .list-buttons-container {
-        padding: 8px;
-        gap: 4px;
-        border-radius: 12px 12px 0 0;
-    }
-
-    .list-button {
-        font-size: 0.8rem;
-        padding: 6px 8px;
-        border-radius: 16px;
-    }
+  .list-buttons-container {
+    padding: 8px;
+    gap: 4px;
+  border-radius: 12px 12px 0 0;
+  }
+  
+  .list-button {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+    border-radius: 16px;
+  }
 }
