@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import styles from './ListButtons.module.css';
+
 
 type ButtonOption = 'Favorite' | 'Watchlist' | 'Watched';
 

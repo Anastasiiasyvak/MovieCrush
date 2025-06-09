@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.pageContainer {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+    background-color: #000000;
+}
+
+.settingsPage {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.backIconContainer {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.backIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.backIcon:hover {
+    transform: translateX(-5px);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(90%) saturate(500%) hue-rotate(360deg) brightness(105%) contrast(105%);
+}
+
+.pageTitle {
+    color: #FFE566;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
+    text-align: center;
+}
+
+.settingsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.avatarSection, .usernameSection {
+    width: 100%;
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.sectionTitle {
+    color: #FFE566;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 1rem;
+}
+
+.avatarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.avatarPreview {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    border: 2px solid #FFE566;
+    object-fit: cover;
+}
+
+.avatarUploadButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid #FFE566;
+    color: #FFE566;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.avatarUploadButton:hover {
+    background-color: rgba(255, 229, 102, 0.1);
+}
+
+.fileInput {
+    display: none;
+}
+
+.usernameInput {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 30px;
+    border: 2px solid #F1D164;
+    background-color: transparent;
+    color: #F1D164;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.usernameInput::placeholder {
+    color: #7E7E7E;
+    opacity: 1;
+}
+
+.usernameInput:focus {
+    box-shadow: 0 0 0 2px rgba(241, 209, 100, 0.2);
+}
+
+.saveButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #FFE566;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.saveButton:hover {
+    background-color: #F1D164;
+    transform: translateY(-2px);
+}
+
+.saveButton:active {
+    transform: translateY(0);
+}
