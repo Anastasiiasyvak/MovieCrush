@@ -1,0 +1,23 @@
+.heartButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s ease;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.heartButton:hover {
+  transform: scale(1.1);
+}
+
+.heartImage {
+  width: 24px;
+  height: 24px;
+  transition: filter 0.3s ease;
+}
+
+.heartActive {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(19%) saturate(1090%) hue-rotate(298deg) brightness(102%) contrast(101%);
+}

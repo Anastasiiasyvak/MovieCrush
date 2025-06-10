@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  background-color: #000000;
+}
+
+.searchPage {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.searchContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.loading {
+  color: #FFE566;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.error {
+  color: #FF6B6B;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.resultsTitle {
+  color: #FFE566;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 3rem 0 1.5rem;
+  text-align: center;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.movieCard {
+  background: #1A1A1A;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.movieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(255, 230, 102, 0.2);
+}
+
+.posterImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movieTitle {
+  padding: 1rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posterPlaceholder {
+  width: 100%;
+  height: 300px;
+  background: #1E1E1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A7A7A7;
+  font-family: 'Poppins', sans-serif;
+}

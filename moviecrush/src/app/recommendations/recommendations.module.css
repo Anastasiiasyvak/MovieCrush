@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+}
+
+.recommendationsPage {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.pageTitle {
+  color: #FFE566;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+.content {
+  margin-top: 1rem;
+}
+
+.recommendationSection {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  color: #FFE566;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  padding-left: 0.5rem;
+  border-left: 4px solid #FFE566;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.movieCard {
+  background: #1A1A1A;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255, 229, 102, 0.15);
+}
+
+.posterImage {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.noPoster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.movieInfo {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movieMeta {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(255, 229, 102, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.starIcon {
+  color: #FFE566;
+}
+
+.loading {
+  color: #FFE566;
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #FF6B6B;
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.2rem;
+}
+
+.noRecommendations {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.noRecommendations p {
+  font-size: 1.1rem;
+  color: #CCC;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .movieTitle {
+    font-size: 0.9rem;
+  }
+  
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  
+  .recommendationsPage {
+    padding: 1rem;
+  }
+}
