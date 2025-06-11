@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import heartImage from 'public/heart.png';
 import styles from './ButtonHeart.module.css';
 
 type ButtonHeartProps = {
@@ -29,11 +28,11 @@ export default function ButtonHeart({
       aria-label={isActive ? 'Unlike' : 'Like'}
     >
       <Image
-        src={heartImage}
-        alt="Heart icon"
-        width={24}
-        height={24}
-        className={`${styles.heartImage} ${isActive ? styles.heartActive : ''}`}
+          src="/heart.png"
+          alt="Heart icon"
+          width={24}
+          height={24}
+          className={`${styles.heartImage} ${isActive ? styles.heartActive : ''}`}
       />
     </button>
   );

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.moviePage {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 60px;
+    background-color: #000000;
+    color: #A7A7A7;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.backIconContainer {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.backIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.backIcon:hover {
+    transform: translateX(-5px);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(90%) saturate(500%) hue-rotate(360deg) brightness(105%) contrast(105%);
+}
+
+.movieHeader {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.movieTitle {
+    color: #FFE566;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.ratingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ratingContainer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ratingStar {
+    width: 20px;
+    height: 20px;
+}
+
+.generalRating {
+    color: #FFE566;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bookmarkButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.bookmarkButton:hover .bookmarkIcon {
+    stroke: #FFE566;
+    transform: scale(1.1);
+}
+
+.bookmarkIcon {
+    transition: all 0.3s ease;
+}
+
+.bookmarkButton.active .bookmarkIcon {
+    stroke: #FFE566;
+    fill: #FFE566;
+}
+
+.movieContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.posterContainer {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 230, 102, 0.2);
+}
+
+.posterPlaceholder {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/3;
+    background-color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #A7A7A7;
+}
+
+.movieDetails {
+    width: 100%;
+}
+
+.detailRow {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detailLabel {
+    color: #FFB6CE;
+    font-weight: 600;
+}
+
+.detailValue {
+    color: #A7A7A7;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    font-size: 24px;
+    color: #FFE566;
+}
+
+.error {
+    color: #FF6B6B;
+}
+
+@media (min-width: 768px) {
+    .moviePage {
+        padding: 40px;
+        padding-top: 60px;
+    }
+
+    .movieTitle {
+        font-size: 36px;
+    }
+
+    .movieContent {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .posterContainer {
+        flex: 0 0 350px;
+        margin: 0;
+    }
+
+    .detailRow {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .detailLabel {
+        min-width: 120px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movieTitle {
+        font-size: 24px;
+    }
+
+    .buttonsContainer {
+        gap: 10px;
+    }
+
+    .bookmarkButton {
+        padding: 3px;
+    }
+}

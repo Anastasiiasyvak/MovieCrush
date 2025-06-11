@@ -1,4 +1,4 @@
-.list-buttons-container {
+.listButtonsContainer {
   display: flex;
   background-color: #1a1a1a; 
   padding: 12px;
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.list-button {
+.listButton {
   align-items: center;
   background-color: transparent;
   border-radius: 20px;
@@ -38,36 +38,36 @@
   text-overflow: ellipsis;
 }
 
-.list-button:hover {
+.listButton:hover {
   color: #FFE566; 
   border-color: #FFE566; 
 }
 
-.list-button.selected {
+.listButton.selected {
   color: #FFE566;
   border: 1px solid #FFE566;
 }
 
 @media (max-width: 768px) {
-  .list-buttons-container {
+  .listButtonsContainer {
     padding: 10px;
     gap: 6px;
   }
   
-  .list-button {
+  .listButton {
     font-size: 0.9rem;
     padding: 6px 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .list-buttons-container {
+  .listButtonsContainer {
     padding: 8px;
     gap: 4px;
   border-radius: 12px 12px 0 0;
   }
   
-  .list-button {
+  .listButton {
     font-size: 0.8rem;
     padding: 6px 8px;
     border-radius: 16px;

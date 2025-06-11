@@ -4,7 +4,6 @@
   cursor: pointer;
   padding: 8px;
   transition: transform 0.2s ease;
-  margin-bottom: 8px;
   display: block;
 }
 
@@ -13,8 +12,8 @@
 }
 
 .heartImage {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   transition: filter 0.3s ease;
 }
 
