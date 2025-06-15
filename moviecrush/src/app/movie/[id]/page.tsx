@@ -13,6 +13,9 @@ import styles from './movie.module.css';
 import {getTMDBId} from "@/services/tmdbAPI";
 import GalleryBlock from '@/components/GalleryBlock/GalleryBlock';
 import CastBlock from '@/components/CastBlock/CastBlock';
+import OverviewBlock from '@/components/OverviewBlock/OverviewBlock';
+import RatingBlock from '@/components/RatingBlock/RatingBlock';
+
 
 
 interface MovieDetails {
@@ -241,7 +244,6 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Year:</span><span className={styles.detailValue}>{movie.Year}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Genre:</span><span className={styles.detailValue}>{movie.Genre}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Actors:</span><span className={styles.detailValue}>{movie.Actors}</span></div>
-                    <div className={styles.detailRow}><span className={styles.detailLabel}>Plot:</span><span className={styles.detailValue}>{movie.Plot}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Country:</span><span className={styles.detailValue}>{movie.Country}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Awards:</span><span className={styles.detailValue}>{movie.Awards}</span></div>
                     <ShareBar movieTitle={movie.Title} movieId={movie.imdbID} />
@@ -250,6 +252,8 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
             {tmdbId && <GalleryBlock tmdbId={tmdbId} />}
             {tmdbId && <TrailerBlock tmdbId={tmdbId} />}
             {tmdbId && <CastBlock tmdbId={tmdbId} />}
+            {tmdbId && <OverviewBlock tmdbId={tmdbId} fallbackPlot={movie.Plot} />}
+            {movie.Ratings && <RatingBlock ratings={movie.Ratings} />}
         </div>
     );
 }

@@ -1,0 +1,21 @@
+.overview {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+    color: #FFE566;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #DDD;
+}
