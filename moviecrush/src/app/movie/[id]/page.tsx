@@ -11,6 +11,8 @@ import ShareBar from '@/components/ShareBar/ShareBar';
 import TrailerBlock from '@/components/TrailerBlock/TrailerBlock';
 import styles from './movie.module.css';
 import {getTMDBId} from "@/services/tmdbAPI";
+import GalleryBlock from '@/components/GalleryBlock/GalleryBlock';
+
 
 interface MovieDetails {
     Title: string;
@@ -244,6 +246,7 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
                     <ShareBar movieTitle={movie.Title} movieId={movie.imdbID} />
                 </div>
             </div>
+            {tmdbId && <GalleryBlock tmdbId={tmdbId} />}
             {tmdbId && <TrailerBlock tmdbId={tmdbId} />}
         </div>
     );
