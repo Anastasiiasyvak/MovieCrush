@@ -7,6 +7,7 @@ import { BASE_URL, API_KEY } from '@/services/movieAPI';
 import ButtonWatch from '@/components/ButtonWatch/ButtonWatch';
 import ButtonHeart from '@/components/ButtonHeart/ButtonHeart';
 import Score from '@/components/Score/Score';
+import ShareBar from '@/components/ShareBar/ShareBar';
 import styles from './movie.module.css';
 
 interface MovieDetails {
@@ -230,6 +231,7 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Plot:</span><span className={styles.detailValue}>{movie.Plot}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Country:</span><span className={styles.detailValue}>{movie.Country}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Awards:</span><span className={styles.detailValue}>{movie.Awards}</span></div>
+                    <ShareBar movieTitle={movie.Title} movieId={movie.imdbID} />
                 </div>
             </div>
         </div>

@@ -92,5 +92,17 @@
         "dateAdded": "2025-06-10"
       }
     ]
+  },
+  {
+    "id": "c13205b7-947c-4e60-9b9c-677a41c00b69",
+    "email": "kate.shashkina.ks@gmail.com",
+    "password": "qwerty",
+    "name": "Kateryna ",
+    "surname": "Shashkina ",
+    "nickname": "kkthrrn",
+    "photo": "",
+    "favorite": [],
+    "watched": [],
+    "watchlist": []
   }
 ]
