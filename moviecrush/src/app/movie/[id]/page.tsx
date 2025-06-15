@@ -8,7 +8,9 @@ import ButtonWatch from '@/components/ButtonWatch/ButtonWatch';
 import ButtonHeart from '@/components/ButtonHeart/ButtonHeart';
 import Score from '@/components/Score/Score';
 import ShareBar from '@/components/ShareBar/ShareBar';
+import TrailerBlock from '@/components/TrailerBlock/TrailerBlock';
 import styles from './movie.module.css';
+import {getTMDBId} from "@/services/tmdbAPI";
 
 interface MovieDetails {
     Title: string;
@@ -152,6 +154,14 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
         setMovieUserData(data);
     };
 
+    const [tmdbId, setTmdbId] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (!movie?.imdbID) return;
+        getTMDBId(movie.imdbID).then(setTmdbId);
+    }, [movie]);
+
+
     const toggleFavorite = () => updateMovieLists({ ...movieUserData, isFavorite: !movieUserData.isFavorite });
     const toggleWatched = () => updateMovieLists({
         ...movieUserData,
@@ -234,6 +244,7 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
                     <ShareBar movieTitle={movie.Title} movieId={movie.imdbID} />
                 </div>
             </div>
+            {tmdbId && <TrailerBlock tmdbId={tmdbId} />}
         </div>
     );
 }
