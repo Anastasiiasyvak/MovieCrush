@@ -18,7 +18,6 @@ export default function TrailerBlock({ tmdbId }: { tmdbId: number }) {
 
     return (
         <div className={styles.trailerBlock}>
-            <h2 className={styles.title}>Trailer</h2>
             <div className={styles.videoWrapper}>
                 <iframe
                     src={`https://www.youtube.com/embed/${trailerId}`}

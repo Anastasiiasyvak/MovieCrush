@@ -12,6 +12,7 @@ import TrailerBlock from '@/components/TrailerBlock/TrailerBlock';
 import styles from './movie.module.css';
 import {getTMDBId} from "@/services/tmdbAPI";
 import GalleryBlock from '@/components/GalleryBlock/GalleryBlock';
+import CastBlock from '@/components/CastBlock/CastBlock';
 
 
 interface MovieDetails {
@@ -248,6 +249,7 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
             </div>
             {tmdbId && <GalleryBlock tmdbId={tmdbId} />}
             {tmdbId && <TrailerBlock tmdbId={tmdbId} />}
+            {tmdbId && <CastBlock tmdbId={tmdbId} />}
         </div>
     );
 }
