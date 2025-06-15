@@ -15,6 +15,8 @@ import GalleryBlock from '@/components/GalleryBlock/GalleryBlock';
 import CastBlock from '@/components/CastBlock/CastBlock';
 import OverviewBlock from '@/components/OverviewBlock/OverviewBlock';
 import RatingBlock from '@/components/RatingBlock/RatingBlock';
+import RecommendationsBlock from '@/components/RecommendationsBlock/RecommendationsBlock';
+
 
 
 
@@ -254,6 +256,7 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
             {tmdbId && <CastBlock tmdbId={tmdbId} />}
             {tmdbId && <OverviewBlock tmdbId={tmdbId} fallbackPlot={movie.Plot} />}
             {movie.Ratings && <RatingBlock ratings={movie.Ratings} />}
+            {tmdbId && <RecommendationsBlock tmdbId={tmdbId} />}
         </div>
     );
 }

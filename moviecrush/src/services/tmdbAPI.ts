@@ -17,13 +17,13 @@ export const getTMDBTrailer = async (tmdbId: number): Promise<string | null> => 
 export const getTMDBImages = async (tmdbId: number): Promise<string[]> => {
     const res = await fetch(`${TMDB_BASE}/movie/${tmdbId}/images?api_key=${TMDB_API_KEY}`);
     const data = await res.json();
-    return data.backdrops?.slice(0, 5).map((img: any) => `https://image.tmdb.org/t/p/w780${img.file_path}`) || [];
+    return data.backdrops?.slice(0, 10).map((img: any) => `https://image.tmdb.org/t/p/w780${img.file_path}`) || [];
 };
 
 export const getTMDBCast = async (tmdbId: number): Promise<{ name: string; character: string; photo: string }[]> => {
     const res = await fetch(`${TMDB_BASE}/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}`);
     const data = await res.json();
-    return data.cast?.slice(0, 10).map((actor: any) => ({
+    return data.cast?.slice(0, 15).map((actor: any) => ({
         name: actor.name,
         character: actor.character,
         photo: actor.profile_path ? `https://image.tmdb.org/t/p/w185${actor.profile_path}` : '',
@@ -33,9 +33,17 @@ export const getTMDBCast = async (tmdbId: number): Promise<{ name: string; chara
 export const getTMDBRecommendations = async (tmdbId: number): Promise<{ title: string; poster: string; id: number }[]> => {
     const res = await fetch(`${TMDB_BASE}/movie/${tmdbId}/recommendations?api_key=${TMDB_API_KEY}`);
     const data = await res.json();
-    return data.results?.slice(0, 6).map((movie: any) => ({
+    return data.results?.slice(0, 15).map((movie: any) => ({
         title: movie.title,
         poster: movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : '',
         id: movie.id,
     })) || [];
+};
+
+export const getIMDbIdByTMDB = async (tmdbId: number): Promise<string | null> => {
+    const res = await fetch(
+        `${TMDB_BASE}/movie/${tmdbId}/external_ids?api_key=${TMDB_API_KEY}`
+    );
+    const data = await res.json();
+    return data.imdb_id || null;
 };

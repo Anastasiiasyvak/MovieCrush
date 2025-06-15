@@ -23,6 +23,7 @@ export default function ShareBar({ movieTitle, movieId }: ShareBarProps) {
 
     return (
         <div className={styles.shareBar}>
+            <p className={styles.shareText}>Share this movie with your friends!</p>
             <a
                 href={`mailto:?subject=${encodedTitle}&body=${encodedURL}`}
                 className={styles.shareButton}
