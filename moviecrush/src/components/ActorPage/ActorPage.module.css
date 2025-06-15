@@ -1,0 +1,134 @@
+.actorPage {
+    padding: 24px 16px;
+}
+
+.header {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.actorImage {
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.info {
+    max-width: 1000px;
+}
+
+.info h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    margin: 0 0 12px;
+    color: #ffe566;
+}
+
+.info p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+    margin: 6px 0;
+}
+
+.bio {
+    margin-top: 16px;
+}
+
+.subheading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    color: #ffe566;
+    margin-bottom: 16px;
+}
+
+.creditsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.movieCard {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(255, 229, 102, 0.05);
+    cursor: pointer;
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.movieCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 229, 102, 0.15);
+}
+
+.posterImage {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.noPoster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.movieInfo {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.movieTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 0.3rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movieRole {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.backIconContainer {
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.backIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.backIcon:hover {
+    transform: translateX(-5px);
+}
+
+.loading {
+    color: #FFE566;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem 0;
+}
+

@@ -1,0 +1,82 @@
+.comments {
+    margin-top: 40px;
+    padding: 0 16px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #ffe566;
+    margin-bottom: 14px;
+}
+
+/* ── form ────────────────────────── */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.input,
+.textarea {
+    padding: 10px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #2b2b2b;
+    color: #fff;
+}
+
+.textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.button {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    background: #ffe566;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.button:hover {
+    background: #fff27c;
+}
+
+/* ── list ────────────────────────── */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.comment {
+    background: #1e1e1e;
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.date {
+    font-size: 11px;
+    color: #888;
+}
+
+.body {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ddd;
+}

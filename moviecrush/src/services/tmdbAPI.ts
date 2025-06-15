@@ -20,15 +20,20 @@ export const getTMDBImages = async (tmdbId: number): Promise<string[]> => {
     return data.backdrops?.slice(0, 10).map((img: any) => `https://image.tmdb.org/t/p/w780${img.file_path}`) || [];
 };
 
-export const getTMDBCast = async (tmdbId: number): Promise<{ name: string; character: string; photo: string }[]> => {
+export const getTMDBCast = async (
+    tmdbId: number
+): Promise<{ id: number; name: string; character: string; photo: string }[]> => {
     const res = await fetch(`${TMDB_BASE}/movie/${tmdbId}/credits?api_key=${TMDB_API_KEY}`);
     const data = await res.json();
+
     return data.cast?.slice(0, 15).map((actor: any) => ({
+        id: actor.id,
         name: actor.name,
         character: actor.character,
         photo: actor.profile_path ? `https://image.tmdb.org/t/p/w185${actor.profile_path}` : '',
     })) || [];
 };
+
 
 export const getTMDBRecommendations = async (tmdbId: number): Promise<{ title: string; poster: string; id: number }[]> => {
     const res = await fetch(`${TMDB_BASE}/movie/${tmdbId}/recommendations?api_key=${TMDB_API_KEY}`);
