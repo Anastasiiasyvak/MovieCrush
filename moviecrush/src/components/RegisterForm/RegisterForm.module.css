@@ -17,6 +17,36 @@
     outline: none;
 }
 
+.genresSection {
+    margin: 20px 0;
+    color: #fff;
+    text-align: left;
+}
+
+.genresGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.genreCheckbox {
+    background-color: #222;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.9rem;
+}
+
+.genreCheckbox input {
+    margin-right: 6px;
+}
+
+.genreCheckbox:hover {
+    background-color: #333;
+}
+
+
 .form input::placeholder {
     color: #888;
 }
