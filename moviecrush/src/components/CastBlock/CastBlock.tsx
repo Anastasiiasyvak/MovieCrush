@@ -35,7 +35,7 @@ export default function CastBlock({ tmdbId }: CastBlockProps) {
                     <div
                         key={actor.id}
                         className={styles.card}
-                        onClick={() => router.push(`/actor/${actor.id}`)}
+                        onClick={() => router.push(`/actor-redirect/${actor.id}`)}
                         style={{ cursor: 'pointer' }}
                     >
                         {actor.photo ? (

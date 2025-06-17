@@ -1,0 +1,65 @@
+.adContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.adImage {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(255, 229, 102, 0.2);
+}
+
+.countdownText {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #ffe566;
+}
+
+.goButton {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffe566;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.goButton:disabled {
+    background-color: #777;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.goButton:not(:disabled):hover {
+    background-color: #ffdb4d;
+}
+
+.backIconContainer {
+    align-self: flex-start;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.backIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.backIcon:hover {
+    transform: translateX(-5px);
+}
