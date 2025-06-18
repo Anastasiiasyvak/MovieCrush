@@ -1,0 +1,50 @@
+.ratingBlock {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+    color: #FFE566;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.ratingRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    width: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #A7A7A7;
+}
+
+.barWrapper {
+    flex: 1;
+    background-color: #333;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.barFill {
+    background-color: #FFE566;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #DDD;
+    min-width: 45px;
+    text-align: right;
+}

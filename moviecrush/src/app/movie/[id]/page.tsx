@@ -7,7 +7,19 @@ import { BASE_URL, API_KEY } from '@/services/movieAPI';
 import ButtonWatch from '@/components/ButtonWatch/ButtonWatch';
 import ButtonHeart from '@/components/ButtonHeart/ButtonHeart';
 import Score from '@/components/Score/Score';
+import ShareBar from '@/components/ShareBar/ShareBar';
+import TrailerBlock from '@/components/TrailerBlock/TrailerBlock';
 import styles from './movie.module.css';
+import {getTMDBId} from "@/services/tmdbAPI";
+import GalleryBlock from '@/components/GalleryBlock/GalleryBlock';
+import CastBlock from '@/components/CastBlock/CastBlock';
+import OverviewBlock from '@/components/OverviewBlock/OverviewBlock';
+import RatingBlock from '@/components/RatingBlock/RatingBlock';
+import RecommendationsBlock from '@/components/RecommendationsBlock/RecommendationsBlock';
+import CommentBlock from '@/components/CommentBlock/CommentBlock';
+
+
+
 
 interface MovieDetails {
     Title: string;
@@ -151,6 +163,14 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
         setMovieUserData(data);
     };
 
+    const [tmdbId, setTmdbId] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (!movie?.imdbID) return;
+        getTMDBId(movie.imdbID).then(setTmdbId);
+    }, [movie]);
+
+
     const toggleFavorite = () => updateMovieLists({ ...movieUserData, isFavorite: !movieUserData.isFavorite });
     const toggleWatched = () => updateMovieLists({
         ...movieUserData,
@@ -227,11 +247,18 @@ export default function MoviePage(props: { params: Promise<{ id: string }> }){
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Year:</span><span className={styles.detailValue}>{movie.Year}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Genre:</span><span className={styles.detailValue}>{movie.Genre}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Actors:</span><span className={styles.detailValue}>{movie.Actors}</span></div>
-                    <div className={styles.detailRow}><span className={styles.detailLabel}>Plot:</span><span className={styles.detailValue}>{movie.Plot}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Country:</span><span className={styles.detailValue}>{movie.Country}</span></div>
                     <div className={styles.detailRow}><span className={styles.detailLabel}>Awards:</span><span className={styles.detailValue}>{movie.Awards}</span></div>
+                    <ShareBar movieTitle={movie.Title} movieId={movie.imdbID} />
                 </div>
             </div>
+            {tmdbId && <GalleryBlock tmdbId={tmdbId} />}
+            {tmdbId && <TrailerBlock tmdbId={tmdbId} />}
+            {tmdbId && <CastBlock tmdbId={tmdbId} />}
+            {tmdbId && <OverviewBlock tmdbId={tmdbId} fallbackPlot={movie.Plot} />}
+            {movie.Ratings && <RatingBlock ratings={movie.Ratings} />}
+            {tmdbId && <RecommendationsBlock tmdbId={tmdbId} />}
+            <CommentBlock imdbID={movie.imdbID} />
         </div>
     );
 }
